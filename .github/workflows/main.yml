@@ -38,5 +38,9 @@ jobs:
       - name: Run Linter
         run: npm run lint
 
+      - name: 'Create env file'
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > .env
+
       - name: Run Test
         run: npm run test
