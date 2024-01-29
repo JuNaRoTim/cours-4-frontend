@@ -37,9 +37,12 @@ jobs:
 
       - name: Run Linter
         run: npm run lint
+#peut faire les jobs test si lint est ok
+
 
   Test:
     name: Test
+    needs: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -60,6 +63,9 @@ jobs:
 
   Build:
     name: Build
+    needs:
+     - Lint
+     - Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
