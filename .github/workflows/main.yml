@@ -61,6 +61,9 @@ jobs:
       - name: Run Test
         run: npm run test
 
+      - name: Tests E2E
+        uses: cypress-io/github-action@v6
+
   Build:
     name: Build
     needs:
@@ -80,5 +83,3 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Tests E2E
-        uses: cypress-io/github-action@v6
