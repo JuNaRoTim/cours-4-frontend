@@ -37,7 +37,7 @@ jobs:
 
       - name: Run Linter
         run: npm run lint
-#peut faire les jobs test si lint est ok
+
 
 
   Test:
@@ -45,7 +45,14 @@ jobs:
     needs: Lint
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies
+        run: npm install
 
       - name: 'Create env file'
         run: |
@@ -61,7 +68,14 @@ jobs:
      - Test
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Build
         run: npm run build
