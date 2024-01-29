@@ -19,8 +19,8 @@ permissions:
   id-token: write
 
 jobs:
-  Frontend:
-    name: Exercice
+  Lint:
+    name: Linter
     runs-on: ubuntu-latest
     steps:
       - name : Checkout repo
@@ -38,6 +38,19 @@ jobs:
       - name: Run Linter
         run: npm run lint
 
+  Test:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+
+      - name: Install dependencies
+        run: npm install
+
       - name: 'Create env file'
         run: |
           echo "${{ secrets.ENV_FILE }}" > .env
@@ -45,6 +58,10 @@ jobs:
       - name: Run Test
         run: npm run test
 
+  Build:
+    name: TestE2E
+    runs-on: ubuntu-latest
+    steps:
       - name: Build
         run: npm run build
 
