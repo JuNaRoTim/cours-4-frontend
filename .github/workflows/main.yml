@@ -39,7 +39,7 @@ jobs:
         run: npm run lint
 
   Test:
-    name: Build
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -59,7 +59,7 @@ jobs:
         run: npm run test
 
   Build:
-    name: TestE2E
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Build
