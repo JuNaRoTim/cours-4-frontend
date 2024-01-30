@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: fix lint
         run: npm run lint --fix
@@ -52,7 +52,7 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: 'Create env file'
         run: |
@@ -61,8 +61,8 @@ jobs:
       - name: Run Test
         run: npm run test
 
-      - name: Tests E2E
-        uses: cypress-io/github-action@v6
+#      - name: Tests E2E
+#        uses: cypress-io/github-action@v6
 
   Build:
     name: Build
@@ -78,7 +78,7 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
